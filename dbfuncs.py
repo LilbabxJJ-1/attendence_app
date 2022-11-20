@@ -43,3 +43,26 @@ class DBFuncs:
             self.cursor3.commit()
         except Exception:
             raise Exception("Error while using OVERWRITE")
+
+    def update(self, table: str, column: str, olddata, newdata):
+        """Update (APPENDING) a query to the SQL database"""
+        lst = []
+        new = ""
+        try:
+            info = self.cursor4.execute(f"SELECT * from {table}")
+            for i in info:
+                lst = i[2].split(", ")
+                if '' == lst[-1]:
+                    lst.remove(lst[-1])
+                    lst.append(newdata)
+                else:
+                    lst.append(newdata)
+                break
+
+            for i in lst:
+                new += f"{i}, "
+            self.cursor4.execute(f"UPDATE {table} SET {column} = '{new}' WHERE {column} = '{olddata}'")
+            self.cursor4.commit()
+        except Exception as e:
+            print(e)
+            raise Exception("Error while using UPDATE")

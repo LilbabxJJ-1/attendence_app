@@ -1,14 +1,8 @@
 import datetime
-import time
-
 from pytz import timezone
 import customtkinter
-import pymongo
-import numpy
 import certifi
 from dbfuncs import DBFuncs as DB
-
-ca = certifi.where()
 
 
 class App(customtkinter.CTk):
