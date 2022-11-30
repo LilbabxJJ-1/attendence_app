@@ -1,7 +1,6 @@
 import datetime
 from pytz import timezone
 import customtkinter
-import certifi
 from dbfuncs import DBFuncs as DB
 
 
@@ -336,6 +335,8 @@ class App(customtkinter.CTk):
     def period1(self):
         """Period1-8 all show the list of the students in the class and weather they're attending class or not"""
         self.current = 1
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -346,21 +347,23 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[2] is None:
                 continue
-            num += 1
             i = student[2].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
         else:
             if num == 0:
                 if self.nostudents is not None:
@@ -372,6 +375,8 @@ class App(customtkinter.CTk):
 
     def period2(self):
         self.current = 2
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -382,21 +387,23 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[3] is None:
                 continue
-            num += 1
             i = student[3].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
         else:
             if num == 0:
                 if self.nostudents is not None:
@@ -408,6 +415,8 @@ class App(customtkinter.CTk):
 
     def period3(self):
         self.current = 3
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -418,21 +427,24 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[4] is None:
                 continue
-            num += 1
+
             i = student[4].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
         else:
             if num == 0:
                 if self.nostudents is not None:
@@ -444,6 +456,8 @@ class App(customtkinter.CTk):
 
     def period4(self):
         self.current = 4
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -454,21 +468,23 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[5] is None:
                 continue
-            num += 1
             i = student[5].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
         else:
             if num == 0:
                 if self.nostudents is not None:
@@ -480,6 +496,8 @@ class App(customtkinter.CTk):
 
     def period5(self):
         self.current = 5
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -494,78 +512,7 @@ class App(customtkinter.CTk):
             i = student[6].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
-                    if i[1] == "Yes":
-                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
-                    else:
-                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
-            else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
-        else:
-            if num == 0:
-                if self.nostudents is not None:
-                    self.nostudents.destroy()
-                self.nostudents = customtkinter.CTkLabel(master=self, text=f"You don't have anyone in your period {self.current}")
-                self.nostudents.place(relx=.35, rely=.3)
-            self.textbox.configure(state="disabled", text_font=("Serif", 10))
-            self.update()
-
-    def period6(self):
-        self.current = 6
-        if self.nostudents is not None:
-            self.nostudents.destroy()
-        self.textbox.configure(state='normal', text_font=("Serif", 10))
-        self.textbox.textbox.delete("1.0", "end")
-        self.textbox.insert("insert", "6th Period Class\n\n")
-        classes = self.dbnew.select("Student")
-        num = 0
-        for student in classes:
-            if student[7] is None:
-                continue
-            num += 1
-            i = student[7].split(", ")
-            if self.showing == "IDs":
-                if i[0].title() == self.user:
-                    if i[1] == "Yes":
-                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
-                    else:
-                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
-            else:
-                if i[1] == "Yes":
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
-                else:
-                    self.textbox.insert("insert",
-                                        f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
-        else:
-            if num == 0:
-                if self.nostudents is not None:
-                    self.nostudents.destroy()
-                self.nostudents = customtkinter.CTkLabel(master=self, text=f"You don't have anyone in your period {self.current}")
-                self.nostudents.place(relx=.35, rely=.3)
-            self.textbox.configure(state="disabled", text_font=("Serif", 10))
-            self.update()
-
-    def period7(self):
-        self.current = 7
-        if self.nostudents is not None:
-            self.nostudents.destroy()
-        self.textbox.configure(state='normal', text_font=("Serif", 10))
-        self.textbox.textbox.delete("1.0", "end")
-        self.textbox.insert("insert", "7th Period Class\n\n")
-        classes = self.dbnew.select("Student")
-        num = 0
-        for student in classes:
-            if student[8] is None:
-                continue
-            num += 1
-            i = student[8].split(", ")
-            if self.showing == "IDs":
-                if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
@@ -587,8 +534,91 @@ class App(customtkinter.CTk):
             self.textbox.configure(state="disabled", text_font=("Serif", 10))
             self.update()
 
+    def period6(self):
+        self.current = 6
+        if self.user == "":
+            return
+        if self.nostudents is not None:
+            self.nostudents.destroy()
+        self.textbox.configure(state='normal', text_font=("Serif", 10))
+        self.textbox.textbox.delete("1.0", "end")
+        self.textbox.insert("insert", "6th Period Class\n\n")
+        classes = self.dbnew.select("Student")
+        num = 0
+        for student in classes:
+            if student[7] is None:
+                continue
+            i = student[7].split(", ")
+            if self.showing == "IDs":
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
+            else:
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+        else:
+            if num == 0:
+                if self.nostudents is not None:
+                    self.nostudents.destroy()
+                self.nostudents = customtkinter.CTkLabel(master=self, text=f"You don't have anyone in your period {self.current}")
+                self.nostudents.place(relx=.35, rely=.3)
+            self.textbox.configure(state="disabled", text_font=("Serif", 10))
+            self.update()
+
+    def period7(self):
+        self.current = 7
+        if self.user == "":
+            print("ehy")
+            return
+        if self.nostudents is not None:
+            self.nostudents.destroy()
+        self.textbox.configure(state='normal', text_font=("Serif", 10))
+        self.textbox.textbox.delete("1.0", "end")
+        self.textbox.insert("insert", "7th Period Class\n\n")
+        classes = self.dbnew.select("Student")
+        num = 0
+        for student in classes:
+            if student[8] is None:
+                continue
+            i = student[8].split(", ")
+            if self.showing == "IDs":
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
+            else:
+                if i[0].title() == self.user:
+                    num += 1
+                    if i[1] == "Yes":
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
+                    else:
+                        self.textbox.insert("insert",
+                                            f"|Student: {student[1]}\t| Attended: ❌\n_______________________________________\n")
+        else:
+            if num == 0:
+                if self.nostudents is not None:
+                    self.nostudents.destroy()
+                self.nostudents = customtkinter.CTkLabel(master=self, text=f"You don't have anyone in your period {self.current}")
+                self.nostudents.place(relx=.35, rely=.3)
+            self.textbox.configure(state="disabled", text_font=("Serif", 10))
+            self.update()
+
     def period8(self):
         self.current = 8
+        if self.user == "":
+            return
         if self.nostudents is not None:
             self.nostudents.destroy()
         self.textbox.configure(state='normal', text_font=("Serif", 10))
@@ -599,16 +629,17 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[9] is None:
                 continue
-            num += 1
             i = student[9].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ✔\n_______________________________________\n")
                     else:
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert",
                                             f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
