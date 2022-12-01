@@ -3,7 +3,7 @@ import pyodbc
 
 class DBFuncs:
     def __init__(self):
-        self.conn = pyodbc.connect(r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\jayla\PycharmProjects\attendence_checker\StudentDB.accdb")
+        self.conn = pyodbc.connect(r"**********************************")
         self.cursor1 = self.conn.cursor()
         self.cursor2 = self.conn.cursor()
         self.cursor3 = self.conn.cursor()
