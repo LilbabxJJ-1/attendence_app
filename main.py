@@ -508,7 +508,6 @@ class App(customtkinter.CTk):
         for student in classes:
             if student[6] is None:
                 continue
-            num += 1
             i = student[6].split(", ")
             if self.showing == "IDs":
                 if i[0].title() == self.user:
@@ -519,6 +518,7 @@ class App(customtkinter.CTk):
                         self.textbox.insert("insert", f"|SID#: {student[10]}     | Attended: ❌\n_______________________________________\n")
             else:
                 if i[0].title() == self.user:
+                    num += 1
                     if i[1] == "Yes":
                         self.textbox.insert("insert",
                                             f"|Student: {student[1]}\t| Attended: ✔\n_______________________________________\n")
